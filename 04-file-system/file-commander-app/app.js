@@ -26,7 +26,8 @@ const fs = require("fs/promises");
             length,
             position
         );
-        console.log(content);
+
+        console.log(buffer.toString("utf-8"));
     });
 
     //Create Watcher...
