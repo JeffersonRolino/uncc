@@ -1,1 +1,1 @@
-create a file C:\Users\Jefferson\Desktop\test\a-new-file.txt
+add to file ./test.txt this content: test text
