@@ -35,8 +35,20 @@ const fs = require("fs/promises");
     }
   };
 
-  const renameFile = (oldPath, newPath) => {
-    console.log(`Renaming ${oldPath} to ${newPath}`);
+  const renameFile = async (oldPath, newPath) => {
+    try {
+      await fs.rename(oldPath, newPath);
+      console.log(`Successfully rename ${oldPath} to ${newPath}`);
+    } catch (error) {
+      if (error.code === "ENOENT") {
+        console.log("No file at this path to rename...");
+      } else {
+        console.error(
+          "There was a error trying to rename the file ",
+          error.message
+        );
+      }
+    }
   };
 
   const addToFile = (path, content) => {
