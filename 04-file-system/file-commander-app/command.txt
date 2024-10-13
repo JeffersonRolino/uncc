@@ -1,1 +1,1 @@
-add to file ./test.txt this content: test text
+add to file ./file06.txt this content: Hi There!

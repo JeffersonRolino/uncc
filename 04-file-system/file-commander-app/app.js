@@ -51,7 +51,22 @@ const fs = require("fs/promises");
     }
   };
 
-  const addToFile = (path, content) => {
+  let addedContent = null;
+
+  const addToFile = async (path, content) => {
+    if (addedContent === content) return;
+    addedContent = content;
+
+    try {
+      const fileHandle = await fs.open(path, "a");
+      fileHandle.write(content);
+    } catch (error) {
+      console.error(
+        "There was a error trying to add content to the file ",
+        error.message
+      );
+    }
+
     console.log(`Adding to file ${path} this content: ${content}`);
   };
 
